@@ -25,15 +25,17 @@ module.exports = {
     else {
 
 
-      const data = await fetch(instagramGraphUrl)
-        .then(res => {
-          // ensure that we are only acting on JSON responses
-          if(res.headers.get('content-type').includes('application/json')){
-            return res.json();
-          } else {
-            return null;
-          }
-        });
+      // const data = await fetch(instagramGraphUrl)
+      //   .then(res => {
+      //     // ensure that we are only acting on JSON responses
+      //     if(res.headers.get('content-type').includes('application/json')){
+      //       return res.json();
+      //     } else {
+      //       return null;
+      //     }
+      //   });
+
+      const data = await import('./instagram.json');
 
       // If we didn't receive JSON, fail the plugin but not the build
       if(!data){
